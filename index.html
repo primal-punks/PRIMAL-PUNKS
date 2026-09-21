@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIMAL PUNKS | Robin Hood Chain</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        degen: ['"VT323"', 'monospace'], 
+                        body: ['"Space Mono"', 'monospace'], 
+                    },
+                    colors: {
+                        darkBase: '#080808',
+                        neonGreen: '#00ff66',
+                        punkYellow: '#ffcc00',
+                        punkRed: '#ff2a2a',
+                        punkCyan: '#00e5ff'
+                    },
+                    keyframes: {
+                        float1: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        float2: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-16px)' },
+                        },
+                        float3: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    },
+                    animation: {
+                        'f-1': 'float1 3.8s ease-in-out infinite',
+                        'f-2': 'float2 4.5s ease-in-out infinite',
+                        'f-3': 'float3 3.2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #080808;
+            background-image: 
+                radial-gradient(rgba(0, 255, 102, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Industrial Cyber Border System */
+        .cyber-box {
+            border: 3px solid #ffffff;
+            box-shadow: 6px 6px 0px #00ff66;
+            transition: all 0.2s ease;
+        }
+        .cyber-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #ffcc00;
+        }
+
+        /* Brutalist White Card Style */
+        .brutal-white-card {
+            background-color: #ffffff;
+            color: #000000;
+            border: 4px solid #000000;
+            box-shadow: 6px 6px 0px #000000;
+            transition: all 0.2s ease;
+        }
+        .brutal-white-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #00ff66;
+        }
+
+        .cyber-btn {
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.15s ease;
+        }
+        .cyber-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+        .cyber-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #000;
+        }
+
+        /* Diagonal warning stripe pattern */
+        .stripe-bg {
+            background: repeating-linear-gradient(
+                45deg,
+                #00ff66,
+                #00ff66 10px,
+                #000000 10px,
+                #000000 20px
+            );
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-neonGreen selection:text-black">
+
+    <!-- Top Warning Stripe -->
+    <div class="h-3 w-full stripe-bg border-b-2 border-black"></div>
+
+    <!-- Navbar -->
+    <nav class="bg-darkBase border-b-4 border-neonGreen py-3 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            
+            <!-- Logo Image Section -->
+            <a href="#" class="flex items-center group py-1">
+                <img src="logo.png" alt="PRIMAL PUNKS Logo" class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105">
+            </a>
+
+            <!-- Quick Links (Desktop) -->
+            <div class="hidden lg:flex items-center space-x-6 font-degen text-2xl text-white font-bold">
+                <a href="#about" class="hover:text-neonGreen transition-colors">ABOUT</a>
+                <a href="#preview" class="hover:text-neonGreen transition-colors">PREVIEW</a>
+                <a href="#roadmap" class="hover:text-neonGreen transition-colors">ROADMAP</a>
+                <a href="#faq" class="hover:text-neonGreen transition-colors">FAQ</a>
+            </div>
+
+            <!-- Social & Action Hub -->
+            <div class="flex items-center gap-3">
+                <!-- X Logo Tanpa Latar Belakang Putih -->
+                <a href="https://x.com/PRIMALPUNKS" target="_blank" rel="noopener noreferrer" class="bg-neonGreen cyber-btn p-1.5 flex items-center justify-center hover:bg-white transition-colors">
+                    <img src="X.png" alt="X" class="h-6 w-6 object-contain mix-blend-multiply">
+                </a>
+                <!-- Telegram Logo Tanpa Latar Belakang Putih -->
+                <a href="https://opensea.io/collection/primal-punks-rh/overview" target="_blank" rel="noopener noreferrer" class="bg-neonGreen cyber-btn p-1.5 flex items-center justify-center hover:bg-white transition-colors">
+                    <img src="Telegram.png" alt="Telegram" class="h-6 w-6 object-contain mix-blend-multiply">
+                </a>
+                <button id="connectBtn" class="bg-neonGreen font-degen text-xl px-5 py-1 uppercase text-black cyber-btn font-bold hidden sm:block">
+                    CONNECT
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 pt-12 pb-24">
+        
+        <!-- Hero Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center">
+            
+            <div class="lg:col-span-8">
+                <div class="inline-block bg-neonGreen text-black font-degen text-lg px-3 py-0.5 mb-4 uppercase font-bold border-2 border-black">
+                    NETWORK: ROBIN HOOD CHAIN
+                </div>
+                <h1 class="font-degen text-6xl sm:text-8xl md:text-9xl leading-none uppercase m-0 text-white tracking-wider">
+                    PRIMAL<br>
+                    <span class="text-neonGreen drop-shadow-[4px_4px_0px_#ffcc00]">PUNKS</span>
+                </h1>
+            </div>
+
+            <!-- Side Notice Panel -->
+            <div class="lg:col-span-4 bg-darkBase cyber-box p-6 border-l-8 border-l-punkYellow">
+                <div class="font-degen text-punkYellow text-2xl mb-2">&gt;&gt; SYSTEM NOTICE</div>
+                <p class="text-xs md:text-sm text-gray-300 leading-relaxed uppercase">
+                    A world where attitude is everything and conformity is dead. Different by nature. United by instinct.
+                </p>
+            </div>
+        </div>
+
+        <!-- Action Grid Banner -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+            <a href="https://opensea.io/collection/primal-punks-rh/overview" target="_blank" rel="noopener noreferrer" class="bg-punkYellow text-black cyber-box p-6 font-degen text-3xl uppercase text-center font-bold block hover:bg-neonGreen">
+                [ VIEW COLLECTION ON OPENSEA ]
+            </a>
+            <a href="https://x.com/PRIMALPUNKS" target="_blank" rel="noopener noreferrer" class="bg-punkCyan text-black cyber-box p-6 font-degen text-3xl uppercase text-center font-bold block hover:bg-white">
+                [ FOLLOW OFFICIAL X ]
+            </a>
+        </div>
+
+        <!-- Cyber Mint Matrix Box -->
+        <div class="bg-darkBase cyber-box p-6 md:p-10 mb-20 relative border-l-8 border-l-neonGreen">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b-2 border-gray-800 pb-4">
+                <div>
+                    <span class="font-degen text-neonGreen text-xl block">PROTOCOL: MINT GATEWAY</span>
+                    <h2 class="font-degen text-4xl text-white uppercase">SECURE YOUR PUNK</h2>
+                </div>
+                <span class="bg-punkRed text-white font-degen text-xl px-4 py-1 uppercase font-bold border-2 border-black animate-pulse">
+                    STATUS: ACTIVE
+                </span>
+            </div>
+
+            <p class="text-gray-400 font-body text-sm md:text-base mb-8 uppercase">
+                Every Punk is a unique combination of personalities, outfits, accessories, weapons, colors, and traits. From ruthless outlaws to crowned kings and neon rebels.
+            </p>
+
+            <a href="https://opensea.io/collection/primal-punks-rh/overview" target="_blank" rel="noopener noreferrer" class="block w-full bg-neonGreen text-black font-degen text-4xl py-5 text-center cyber-btn uppercase font-black tracking-widest hover:bg-white">
+                MINT NOW ON OPENSEA
+            </a>
+        </div>
+
+        <!-- Dual Lore / About Section -->
+        <div id="about" class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+            
+            <!-- About Card -->
+            <div class="bg-darkBase cyber-box p-8 flex flex-col justify-between">
+                <div>
+                    <div class="inline-block bg-punkYellow text-black font-degen text-2xl px-3 py-1 mb-6 uppercase font-bold">
+                        ABOUT TRIBE
+                    </div>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed uppercase mb-6">
+                        A world where attitude is everything and conformity is dead. Every character brings its own identity to the collective.
+                    </p>
+                </div>
+                <div class="bg-black border-2 border-neonGreen p-4 font-degen text-neonGreen text-xl uppercase">
+                    &gt; Different by nature. United by instinct.
+                </div>
+            </div>
+
+            <!-- Lore Card -->
+            <div class="bg-darkBase cyber-box p-8 flex flex-col justify-between border-l-8 border-l-punkCyan">
+                <div>
+                    <div class="inline-block bg-punkCyan text-black font-degen text-2xl px-3 py-1 mb-6 uppercase font-bold">
+                        THE LORE
+                    </div>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed uppercase mb-6">
+                        In a world where rules were made to be broken, the Punks refused to follow. They came from the streets, seas, and underground. They don't belong to a kingdom.
+                    </p>
+                </div>
+                <div class="bg-black border-2 border-punkCyan p-4 font-degen text-punkCyan text-xl uppercase text-center font-bold">
+                    &gt; They are the tribe.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Collection Preview Matrix with Floating Animation -->
+        <div id="preview" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-4 w-4 bg-neonGreen"></div>
+                <h2 class="font-degen text-4xl md:text-5xl uppercase tracking-wider m-0">COLLECTION PREVIEW - 15 ITEMS</h2>
+            </div>
+            
+            <!-- Grid 15 NFT Images -->
+            <div class="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 pt-4">
+                
+                <div class="animate-f-1">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_1.png" alt="Punk 1" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-2">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_2.png" alt="Punk 2" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-3">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_3.png" alt="Punk 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-1">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_4.png" alt="Punk 4" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-2">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_5.png" alt="Punk 5" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="animate-f-3">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_6.png" alt="Punk 6" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-1">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_7.png" alt="Punk 7" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-2">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_8.png" alt="Punk 8" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-3">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_9.png" alt="Punk 9" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-1">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_10.png" alt="Punk 10" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="animate-f-2">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_11.png" alt="Punk 11" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-3">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_12.png" alt="Punk 12" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-1">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_13.png" alt="Punk 13" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-2">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_14.png" alt="Punk 14" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="animate-f-3">
+                    <div class="aspect-square bg-black cyber-box overflow-hidden cursor-pointer">
+                        <img src="PRIMAL_PUNKS_15.png" alt="Punk 15" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ROADMAP SECTION -->
+        <div id="roadmap" class="mb-20">
+            <div class="inline-block bg-punkYellow text-black font-degen text-3xl px-6 py-2 uppercase font-bold border-4 border-black mb-8 shadow-[4px_4px_0px_#000]">
+                ROADMAP
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Phase 01 -->
+                <div class="brutal-white-card p-6 md:p-8">
+                    <div class="font-degen text-xl text-gray-500 font-bold mb-1">PHASE 01</div>
+                    <div class="font-degen text-3xl font-black uppercase mb-4">THE AWAKENING</div>
+                    <div class="h-1 w-full bg-black mb-4"></div>
+                    <p class="font-body text-sm md:text-base text-gray-800 uppercase">
+                        Collection creation • Website • Community • Launch
+                    </p>
+                </div>
+
+                <!-- Phase 02 -->
+                <div class="brutal-white-card p-6 md:p-8">
+                    <div class="font-degen text-xl text-gray-500 font-bold mb-1">PHASE 02</div>
+                    <div class="font-degen text-3xl font-black uppercase mb-4">ENTER THE TRIBE</div>
+                    <div class="h-1 w-full bg-black mb-4"></div>
+                    <p class="font-body text-sm md:text-base text-gray-800 uppercase">
+                        Mint • Reveal • Rarity • Community Events
+                    </p>
+                </div>
+
+                <!-- Phase 03 -->
+                <div class="brutal-white-card p-6 md:p-8">
+                    <div class="font-degen text-xl text-gray-500 font-bold mb-1">PHASE 03</div>
+                    <div class="font-degen text-3xl font-black uppercase mb-4">TRIBE EXPANSION</div>
+                    <div class="h-1 w-full bg-black mb-4"></div>
+                    <p class="font-body text-sm md:text-base text-gray-800 uppercase">
+                        Community initiatives • Collaborations • Digital experiences
+                    </p>
+                </div>
+
+                <!-- Phase 04 -->
+                <div class="brutal-white-card p-6 md:p-8">
+                    <div class="font-degen text-xl text-gray-500 font-bold mb-1">PHASE 04</div>
+                    <div class="font-degen text-3xl font-black uppercase mb-4">BEYOND THE TRIBE</div>
+                    <div class="h-1 w-full bg-black mb-4"></div>
+                    <p class="font-body text-sm md:text-base text-gray-800 uppercase">
+                        Future development shaped with the community.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ SECTION -->
+        <div id="faq" class="mb-10">
+            <div class="inline-block bg-punkCyan text-black font-degen text-3xl px-6 py-2 uppercase font-bold border-4 border-black mb-8 shadow-[4px_4px_0px_#000]">
+                FAQ
+            </div>
+            
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="brutal-white-card p-6">
+                    <h3 class="font-degen text-2xl font-bold uppercase mb-2">What is PRIMAL PUNKS?</h3>
+                    <p class="font-body text-sm md:text-base text-gray-800">A collection of 10,000 unique pixel-art Punks born for the degen life on Robin Hood Chain.</p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="brutal-white-card p-6">
+                    <h3 class="font-degen text-2xl font-bold uppercase mb-2">How many Punks exist?</h3>
+                    <p class="font-body text-sm md:text-base text-gray-800">Exactly 10,000 Punks.</p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="brutal-white-card p-6">
+                    <h3 class="font-degen text-2xl font-bold uppercase mb-2">Which blockchain is it on?</h3>
+                    <p class="font-body text-sm md:text-base text-gray-800">Built on Robin Hood Chain.</p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="brutal-white-card p-6">
+                    <h3 class="font-degen text-2xl font-bold uppercase mb-2">What makes each Punk unique?</h3>
+                    <p class="font-body text-sm md:text-base text-gray-800">Every Punk has its own combination of traits, accessories, outfits, expressions, and rare mutations.</p>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="brutal-white-card p-6">
+                    <h3 class="font-degen text-2xl font-bold uppercase mb-2">How can I mint/buy a PRIMAL PUNK?</h3>
+                    <p class="font-body text-sm md:text-base text-gray-800">You can mint directly through the terminal on this website or on secondary markets like OpenSea.</p>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="brutal-white-card p-6">
+                    <h3 class="font-degen text-2xl font-bold uppercase mb-2">Where can I find the official links?</h3>
+                    <p class="font-body text-sm md:text-base text-gray-800">In the header menu or official channels linked on this page.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-4 border-neonGreen bg-darkBase py-10 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="inline-block bg-neonGreen text-black font-degen text-2xl md:text-3xl px-6 py-2 uppercase font-bold cyber-btn mb-4">
+                &copy; 2026 PRIMAL PUNKS. ALL RIGHTS RESERVED.
+            </div>
+            <p class="font-body text-xs text-gray-400 uppercase tracking-widest">
+                DEPLOYED SECURELY ON ROBIN HOOD CHAIN
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script Button Handler -->
+    <script>
+        const btn = document.getElementById('connectBtn');
+        btn.addEventListener('click', function() {
+            btn.innerHTML = "CONNECTING...";
+            setTimeout(() => {
+                btn.innerHTML = "SOON";
+                btn.classList.add("bg-white", "text-black");
+                btn.classList.remove("bg-neonGreen");
+            }, 800);
+        });
+    </script>
+</body>
+</html>
